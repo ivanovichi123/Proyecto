@@ -18,7 +18,6 @@ class Vaca {
     Vaca(const Vaca&);  //Constructor de copia
 
     void setTotal(int); //Obtener el total de animales
-    void setLitrosNombre(); //Obtener los litros de las vacas y sus nombres
 
     int getTotal() const;   //Devuelve el total de animales
     void getLitros();    //Devuelve los valores del vector
@@ -51,22 +50,6 @@ void Vaca::setTotal(int n) {
     totalVacas = n;
     losLitros.resize(n);
     losNombres.resize(n);
-}
-
-//Obtiene los litros y nombres de las vacas y los agrega a sus respectivos vectores
-void Vaca::setLitrosNombre() {
-    int litros;
-    for (int i = 0; i < losLitros.size(); i++) {
-        std::cout << "Ingresa los litros de la vaca " << i + 1 << ": ";
-        cin >> litros;
-        losLitros[i] = litros;
-    }
-    string nombre;
-    for (int i = 0; i < losNombres.size(); i++) {
-        std::cout << "Ingresa el nombre de la vaca " << i + 1 << ": ";
-        cin >> nombre;
-        losNombres[i] = nombre;
-    }
 }
 
 //Devuelve el total de vacas
@@ -209,8 +192,9 @@ void Vaca::agregarLitroNombre(int nuevo, string nombre) {
 
 // Quita una vaca en el indice indicado
 void Vaca::quitarLitroNombre(int indice) {
-    losLitros.erase(losLitros.begin() + indice);
-    losNombres.erase(losNombres.begin() + indice);
+        losLitros.erase(losLitros.begin() + indice);
+        losNombres.erase(losNombres.begin() + indice);
+        totalVacas -= 1;
 }
 
 
