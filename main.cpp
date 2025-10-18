@@ -1,25 +1,45 @@
 //Ivan Arturo Rosas Balderas A01713176
 #include <iostream>
+#include <fstream> //Para poder recibir informacion del acrchivo .txt
+#include <sstream>
 using namespace std;
 #include "vaca.h"   //Incluir la clase vaca
 
 int main() {
 
+    //Primero leer los datos del archivo .txt
+    fstream vacasHeredadas("Vacas.txt");
+
+    //Variables que guardaran los datos
+    int litro;
+    string nombre; 
+    int total;
+
+    //Crear objeto de la clase vaca
+    Vaca vacas;
+
+    //Ver si se abrio correctamente
+    if (!vacasHeredadas.is_open()) {
+        return 1;
+    }
+
+    string linea;
+    //Ciclo while que pasa por cada linea
+    while(getline(vacasHeredadas,linea)) {
+        //Convertir la linea en flujo de texto
+        stringstream litroNombre(linea);
+        //Guardar los valores
+        litroNombre >> litro >> nombre;
+        vacas.agregarLitroNombre(litro,nombre);
+    }
+
+    //Cerrar el archivo
+    vacasHeredadas.close();
+
     //Mensaje inicial explicando el programa
     cout << "Bienvenido  granjero, acabas de heredar la granja de tu abuelo, este programa te permite visualizar todo el ganado" << "\n";
     cout << "que se te fue heredado, ademas de poder guardar el nombre de tus vacas junto con los litros que produce cada una" << "\n";
-    cout << "La importancia de esto es para poder detectar mas facilmente las vacas mas y menos productivas." << "\n";
-    cout << "Primero indique cuantas vacas tiene en total: " << "\n";
-    
-    //Pedir al usuario cuantas vacas tiene
-    int total;
-    cin >> total;
-    //Crear objeto de la clase Vaca
-    Vaca vacas(total);
-
-    cout << "Muy bien, ahora a a continuacion indique los litros que produce cada vaca y su nombre" << "\n";
-    
-    vacas.setLitrosNombre();
+    cout << "La importancia de esto es para poder detectar mas facilmente las vacas mas y menos productivas." << endl;
 
     //Variable que controla si se queda en el menu de opciones
     bool quedarse = true;
@@ -28,7 +48,7 @@ int main() {
     //Ciclo del menu de opciones
     while (quedarse) {
         int opcion;
-        cout << "Escoja una de las siguientes opciones" << "\n";
+        cout << "\n" << "Escoja una de las siguientes opciones" << "\n";
         cout << "1.- Ver informacion" << "\n";
         cout << "2.- Ordenar datos de manera ascendente" << "\n";
         cout << "3.- Ordenar datos de manera descendente" << "\n";
