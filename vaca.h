@@ -27,8 +27,8 @@ class Vaca {
     void ordenaAscendente();    //Ordena ascendentemente los litros de los vectores
     void ordenaDescendente();    //Ordena descendentemente los litros de los vectores
     void swap(vector<int>&, int, int);  //Intercambiar dos elementos
-    int partir(vector<int>&, int, int, bool);    //Apoyo del metodo de ordenamiento
-    void quickSort(vector<int>&, int, int, bool);    //Metodo de ordenamiento
+    void merge(vector<int>&, int, int, int, bool);    //Apoyo del metodo de ordenamiento
+    void mergeSort(vector<int>&, int, int, bool);    //Metodo de ordenamiento
     void agregarLitroNombre(int, string);   //Agrega una vaca y su nombre
     void quitarLitroNombre(int);    //Elimina una vaca en base al indice
 };
@@ -102,12 +102,12 @@ void Vaca::getNombres() {
 
 // Ordena litros y nombres de forma ascendente
 void Vaca::ordenaAscendente() {
-    quickSort(losLitros, 0, totalVacas - 1, true);
+    mergeSort(losLitros, 0, totalVacas - 1, true);
 }
 
 // Ordena litros y nombres de forma descendente
 void Vaca::ordenaDescendente() {
-    quickSort(losLitros, 0, totalVacas - 1, false);
+    mergeSort(losLitros, 0, totalVacas - 1, false);
 }
 
 // Intercambia posiciones entre dos elementos
@@ -121,29 +121,80 @@ void Vaca::swap(vector<int> &litros, int a, int b) {
     losNombres[b] = aux2;
 }
 
-//Funcion auxiliar para la recursion de quick sort
-int Vaca::partir(vector<int> &litros, int min, int max, bool ascendente) {
-    int comparador = litros[max];
-    int i = min - 1;
+//Función auxiliar para la recursion de merge sort
+void Vaca::merge(vector<int> &litros, int inicio, int medio, int final, bool ascendente) {
+    std::vector<int> vectorAyuda; //Vector que guardara los datos ordenados
+    std::vector<std::string> vectorAyudaNombres;    //Vector que guardara los nombres ordenados
+    int i = inicio;     //Indice de la parte izquierda del vector
+    int j = medio + 1;  //Indice de la parte derecha del vector
+    int k = inicio;     //Indice del vectorAyuda
 
-    for (int j = min; j < max; j++) {
-        // Si es ascendente, coloca los menores a la izquierda, si es lo contrario coloca los mayores a la izquierda
-        if (ascendente && litros[j] <= comparador || !ascendente && litros[j] >= comparador) {
-            i += 1;
-            swap(litros, i, j);
+    //Mientras que haya elementos en ambas mitades
+    while (i <= medio && j <= final) {
+        bool condicion;
+        //Saber si se quiere ordenar de forma ascendente
+        if (ascendente) {
+            //Menor primero
+            condicion = (litros[i] < litros[j]);  
+        } 
+        //Si se ordena de forma descendente
+        else {
+            //Mayor primero
+            condicion = (litros[i] > litros[j]);  
         }
+        //Si la condición es verdadera
+        if (condicion) {
+            //Agregar el elemento al vectorAyuda
+            vectorAyuda.push_back(litros[i]);
+            vectorAyudaNombres.push_back(losNombres[i]);
+            i++;
+        } else {
+            //Agregar el elemento al vectorAyuda
+            vectorAyuda.push_back(litros[j]);
+            vectorAyudaNombres.push_back(losNombres[j]);
+            j++;
+        }
+        k++;
     }
-    swap(litros, i + 1, max);
-    return i + 1;
+
+    //Si quedan elementos en la parte izquierda
+    if (i <= medio) { 
+        //Ciclo for para copiar los elementos restantes
+        for (; i <= medio; i++) { 
+            vectorAyuda.push_back(litros[i]); 
+            vectorAyudaNombres.push_back(losNombres[i]);
+            k++; 
+        } 
+    } else {    //Si quedan elementos en la parte derecha
+        //Ciclo for para copiar los elementos restantes
+        for (; j <= final; j++) { 
+            vectorAyuda.push_back(litros[j]); 
+            vectorAyudaNombres.push_back(losNombres[j]);
+            k++; 
+        } 
+    }
+
+    int ayudaIndice = 0; 
+    //Ciclo for para copiar los valores del vectorAyuda al vector original
+    for (int ayuda = inicio; ayuda <= final; ayuda++) { 
+        litros[ayuda] = vectorAyuda[ayudaIndice];
+        losNombres[ayuda] = vectorAyudaNombres[ayudaIndice]; 
+        ayudaIndice++; 
+    }
+
 }
 
-// Método quicksort recursivo para ordenar los litros y nombres
-void Vaca::quickSort(vector<int> &litros, int min, int max, bool ascendente) {
+// Método mergeSort recursivo para ordenar los litros y nombres
+void Vaca::mergeSort(vector<int> &litros, int min, int max, bool ascendente) {
     if (min < max) {
-        int elPartido = partir(litros, min, max, ascendente);
-
-        quickSort(litros, min, elPartido - 1, ascendente); 
-        quickSort(litros, elPartido + 1, max, ascendente); 
+        //Obtener la mitad del vector
+        int mid = (min + max) / 2;
+        //Llamada recursiva para ordenar los valores de la izquierda
+        mergeSort(litros, min, mid, ascendente);
+        //Llamada recursiva para ordenar los valores de la derecha
+        mergeSort(litros, mid + 1, max, ascendente);
+        //Llamada a una función que ordena los valores del vector
+        merge(litros, min, mid, max, ascendente);
     }
 }
 
