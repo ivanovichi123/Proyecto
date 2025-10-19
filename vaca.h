@@ -22,6 +22,8 @@ class Vaca {
     int getTotal() const;   //Devuelve el total de animales
     void getLitros();    //Devuelve los valores del vector
     void getNombres();   //Devuelve los nombres de las vacas
+    int getLitroIndice(int); //Devuelve el litro de la vaca
+    string getNombreIndice(int); //Devuelve el nombre de la vaca
 
     void ordenaAscendente();    //Ordena ascendentemente los litros de los vectores
     void ordenaDescendente();    //Ordena descendentemente los litros de los vectores
@@ -81,6 +83,16 @@ void Vaca::getNombres() {
         }
    }
    std::cout << "]";
+}
+
+//Devuelve el valor del litro de la vaca en el indice
+int Vaca::getLitroIndice(int i) {
+    return losLitros[i];
+}
+
+//Devuelve el nombre de la vaca en el indice
+string Vaca::getNombreIndice(int i) {
+    return losNombres[i];
 }
 
 // Ordena litros y nombres de forma ascendente
