@@ -47,7 +47,7 @@ Vaca::Vaca(int n) {
 //Constructor por copia
 Vaca::Vaca(const Vaca &v) : totalVacas(v.totalVacas), losLitros(v.losLitros), losNombres(v.losNombres) {}
 
-//Obtiene el numeor de vacas y cambia de tamaño los vectores
+//Obtiene el numero de vacas y cambia de tamaño los vectores
 void Vaca::setTotal(int n) {
     totalVacas = n;
     losLitros.resize(n);
@@ -61,12 +61,15 @@ int Vaca::getTotal() const{
 
 //Imprime los litros de las vacas
 void Vaca::getLitros() {
-    std::cout << "[";
+    std::cout << "[" << "\n";
     for(int i = 0; i < losLitros.size(); i++) {
         if (i == losLitros.size() - 1) {
             std::cout << losLitros[i];
         } else {
-            std::cout << losLitros[i] << ",";
+            std::cout << " " << losLitros[i] << " " << ",";
+        }
+        if((i + 1) % 10 == 0) {
+            std::cout << "\n";
         }
    }
    std::cout << "]";
@@ -74,12 +77,15 @@ void Vaca::getLitros() {
 
 //Imprime los nombres de las vacas
 void Vaca::getNombres() {
-    std::cout << "[";
+    std::cout << "[" << "\n";
     for(int i = 0; i < losNombres.size(); i++) {
         if (i == losNombres.size() - 1) {
             std::cout << losNombres[i];
         } else {
-            std::cout << losNombres[i] << ",";
+            std::cout << " " << losNombres[i] << " " << ",";
+        }
+        if((i + 1) % 10 == 0) {
+            std::cout << "\n";
         }
    }
    std::cout << "]";
