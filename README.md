@@ -1,9 +1,11 @@
 # Organizador de granja de vacas
 
-Este programa tiene la función de guardar dos tipos de datos relacionados con las vacas de una granja:  
+Este programa tiene la función de guardar tres tipos de datos relacionados con las vacas de una granja:  
 
 1. **Un número entero**: Representa la cantidad de litros de leche que produce cada vaca al mes.  
 2. **Un string**: Corresponde al nombre de la respectiva vaca.
+3. **Un número entero**: Representa la salud de la vaca.
+4. **Un número entero**: Representa la fecha de adquisición de la vaca.
 
 El propósito principal es tener un mejor control y orden sobre la eficiencia de las vacas, permitiendo identificar cuáles producen más leche y cuáles producen menos lo cual facilita su ordenamiento de manera más rápida, clara y visual.  
 
@@ -11,6 +13,8 @@ El programa también permite guardar un conjunto de clientes en una fila, que es
 
 1. **Un string**: Representa el nombre del cliente.
 2. **Un número entero**: Representa el rango de litros de leche que desea comprar de la vaca
+
+Además en el porgrama se puede conocer que vacas estan saludables o no a partir de una fehca mínima.
 
 En el programa el usuario es capaz de hacer 9 funciones:
 1. **Ver informacion**: Muestra la lista de los litros y nombre de las vacas.
@@ -22,6 +26,8 @@ En el programa el usuario es capaz de hacer 9 funciones:
 7. **Ver fila de clientes**: Muestra a todos los clientes de la fila.
 8. **Vender vaca**: Quita una vaca y un cliente de sus respectivas listas, simpre y cuando los litros de la vaca correspondan al rango del cliente.
 9. **Abrir tienda**: Agrega 5 clientes a la fila.
+10. **Encontrar vacas saludables segun su antiguedad**: Devuelve las vacas saludables en base a una fecha mínima.
+11. **Encontrar vacas no saludables segun su antiguedad**: Devuelve las vacas no saludables en base a una fecha mínima.
 
 ## SICT0301: Evalúa los componentes
 
@@ -55,6 +61,21 @@ Merge Sort es eficiente en todos los casos debido a la complejidad que tiene, lo
 
 La estructura de datos Queue es eficiente para manejar información en orden FIFO: First In, First Out.  
 
+### Análisis de complejidad de AVL:
+
+- **Acceso:**
+  - Complejidad temporal **O(log (n))**:  El árbol siempre se mantiene balanceado, así que para encontrar un dato solo se baja por los niveles del árbol sin recorrer todos los nodos.
+
+- **Búsqueda:**
+  - Complejidad temporal **O(log (n))**:  Buscar un elemento solo requiere bajar por el árbol comparando valores.
+
+- **Inserción:**
+  - Complejidad temporal **O(log (n))**:  Insertar un nuevo dato requiere bajar por el árbol comparando valores para colocarlo en el lugar correcto y, si el árbol se desbalancea, se hacen algunas rotaciones.
+- **Eliminación:**
+  - Complejidad temporal **O(log (n))**:  Borrar un elemento requiere bajar por el árbol comparando valores además puede requerir reorganizar el árbol y hacer rotaciones.
+
+Un AVL es muy rápido para buscar, insertar y eliminar, porque siempre se mantiene equilibrado.
+
 
 ## SICT0302: Toma de decisiones
 
@@ -67,3 +88,8 @@ Se eligió la estructura de datos lineal de tipo queue para manejar a los client
 - Es congruente con la realidad, ya que el primer cliente que llega es el primero en ser atendido.
 - Facilita agregar nuevos clientes al final de la fila y retirar a los ya atendidos del inicio de forma eficiente.
 - Representa de manera clara y lógica el flujo natural de espera en una fila.
+
+Se eligió la estructura de datos no lineal de tipo AVL para encontrar vacas porque:
+-  Permite buscar una vaca muy rápido sin tener que revisar todas una por una.
+-  Mantiene los datos ordenados y balanceados.
+-  Agregar o eliminar vacas es eficiente incluso cuando hay muchas de ellas.
