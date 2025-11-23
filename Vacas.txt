@@ -1,40 +1,40 @@
-1 Manolo
-50 Eduardo
-4 Miguel
-6 Alison
-40 Baldwin
-34 Nichols
-2 Robyn
-80 Wise
-1 Bryce
-43 Frey
-62 Marci
-95 Griffith
-17 Ina
-76 Winters
-5 Brian
-9 Alvarado
-80 Patsy
-39 Rosario
-77 Julie
-75 Avery
-44 Frederic
-11 Daugherty
-99 Darren
-68 Stuart
-1 Quincy
-73 Christian
-32 Carson
-49 Rosetta
-8 Chavez
-98 Dominic
-9 Andrews
-7 Mara
-30 Spencer
-53 Matilda
-98 Beck
-41 Jenkins
-97 Tod
-35 Livingston
-98 Gale
-37 Henson
+13 Manolo 1 200108
+50 Eduardo 0 201212
+4 Miguel 1 200304
+6 Alison 0 201106
+40 Baldwin 0 130128
+34 Nichols 1 220306
+2 Robyn 1 110112
+80 Wise 1 101127
+36 Bryce 1 160317
+43 Frey 0 110626
+62 Marci 1 170109
+95 Griffith 0 211019
+17 Ina 0 140706
+76 Winters 1 220905
+5 Brian 1 111220
+9 Alvarado 1 130906
+81 Patsy 0 200426
+39 Rosario 1 210824
+77 Julie 0 100512
+75 Avery 1 180502
+44 Frederic 1 120309
+11 Daugherty 0 200905
+3 Darren 1 170206
+68 Stuart 1 210521
+1 Quincy 1 201002
+73 Christian 1 170818
+32 Carson 0 131223
+49 Rosetta 0 170412
+8 Chavez 0 161125
+98 Dominic 1 100223
+9 Andrews 1 210724
+7 Mara 1 230409
+30 Spencer 1 210607
+53 Matilda 1 180513
+97 Beck 1 170218
+41 Jenkins 1 110523
+63 Tod 1 191024
+35 Livingston 1 150518
+92 Gale 0 140904
+37 Henson 1 150509
