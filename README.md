@@ -93,3 +93,6 @@ Se eligió la estructura de datos no lineal de tipo AVL para encontrar vacas por
 -  Permite buscar una vaca muy rápido sin tener que revisar todas una por una.
 -  Mantiene los datos ordenados y balanceados.
 -  Agregar o eliminar vacas es eficiente incluso cuando hay muchas de ellas.
+
+## Correcciones:
+  - Se cambio el método quick sort por merge sort porque es mas eficiente.
