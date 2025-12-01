@@ -41,7 +41,7 @@ Se utiliza el algoritmo Merge Sort para ordenar los litros de leche de las vacas
   - Complejidad temporal **O(n log n)**: A pesar de haber un arreglo ya está ordenado Merge Sort sigue dividiendo y combinando las mitades por lo que su complejidad no mejora.
 
 - **Peor caso:**  
-  - Complejidad temporal **O(n log n)**:): Aunque el arreglo esté completamente desordenado Merge Sort siempre realiza las mismas divisiones y combinacioes lo cual hace que mantenga su tiempo de ejecución estable. 
+  - Complejidad temporal **O(n log n)**: Aunque el arreglo esté completamente desordenado Merge Sort siempre realiza las mismas divisiones y combinacioes lo cual hace que mantenga su tiempo de ejecución estable. 
 
 Merge Sort es eficiente en todos los casos debido a la complejidad que tiene, lo que lo hace util para ordenar datos.  
 
@@ -81,7 +81,7 @@ Un AVL es muy rápido para buscar, insertar y eliminar, porque siempre se mantie
 
 Se eligió el método de Merge Sort para ordenar los elementos tanto en orden ascendente como descendente porque:  
 - Es más eficiente en promedio que algoritmos simples como Bubble Sort o Insertion Sort, ya que su complejidad es O(n log n).
-- Merge Sort mantiene una complejudad de tiempo estable incluso con grandes cantidades de datos o cuando los elementos están muy desordenados.
+- Merge Sort mantiene una complejidad de tiempo estable incluso con grandes cantidades de datos o cuando los elementos están muy desordenados.
 - Divide la lista en partes más pequeñas y luego las combina de forma ordenada, lo que asegura que el resultado final siempre esté correctamente ordenado sin importar el estado inicial de los datos.
 
 Se eligió la estructura de datos lineal de tipo queue para manejar a los clientes porque:
@@ -93,6 +93,14 @@ Se eligió la estructura de datos no lineal de tipo AVL para encontrar vacas por
 -  Permite buscar una vaca muy rápido sin tener que revisar todas una por una.
 -  Mantiene los datos ordenados y balanceados.
 -  Agregar o eliminar vacas es eficiente incluso cuando hay muchas de ellas.
+
+## Complejidad del programa:
+La complejidad total se obtendria con un análisis de la complejidad de tiempo de los algoritmos que se tiene:
+- Merge Sort: O(n log n), al ordenar el litro de las vacas.
+- Queue: O(1), al poner y quitar clientes.
+- AVL: O(log n), al buscar vacas por fecha y salud.
+
+Observando estas complejidades de tiempo podemos concluir que Merge Sort es el algoritmo más tardado del programa, por lo que la complejidad general es de **O(n log n)**.
 
 ## Correcciones:
   - Se cambio el método quick sort por merge sort porque es mas eficiente.
